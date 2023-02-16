@@ -30,6 +30,9 @@
         "import/prefer-default-export": "off",
         "react/react-in-jsx-scope": "off",
         "no-param-reassign": "off",
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "arrow-body-style": "warn",
+        "react/self-closing-comp": "warn",
+        "react/prop-types": "off"
     }
 }

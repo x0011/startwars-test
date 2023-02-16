@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTypedDispatch, useTypedSelector } from '../../shared/store';
 import { fetchAllPeoples } from '../../shared/store/slices/peoples';
-import { Container } from '../container';
-import styles from './styles.module.scss';
+import { PeoplesList } from '../peoples-list';
 
 const App = () => {
   const dispatch = useTypedDispatch();
@@ -10,17 +9,18 @@ const App = () => {
     isLoading, isError, isSuccess, data,
   } = useTypedSelector((state) => state.peoples);
   useEffect(() => {
-    dispatch(fetchAllPeoples());
-  }, []);
+    if (!data.length) {
+      dispatch(fetchAllPeoples());
+    }
+  }, [data]);
 
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <h1>Loading...</h1>;
-  if (isSuccess) console.log(data);
+  // if (isSuccess) console.log(data);
 
   return (
-    isSuccess ? (
-      <Container />
-    )
+    isSuccess
+      ? <PeoplesList data={data} />
       : <h1>Error</h1>
   );
 };

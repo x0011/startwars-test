@@ -1,0 +1,9 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 136px;
+  grid-auto-rows: 136px;
+  gap: 35px;
+  // margin-top: ;
+  // grid-template-rows: repx, 3);
+}
