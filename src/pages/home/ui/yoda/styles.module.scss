@@ -1,0 +1,26 @@
+.wrapper {
+  position: relative;
+  width: 550px;
+  height: 619px;
+}
+.firstCloud, .secondCloud, .shadow, .yoda {
+  position: absolute;
+  // top: 0;
+  // left: 0;
+}
+.firstCloud {
+  right: -85px;
+}
+.secondCloud {
+  width: 220px;
+  bottom: 79px;
+}
+.shadow {
+  bottom: 0;
+  right: 100px;
+}
+.yoda {
+  transform: rotate(-17deg);
+  left: -24px;
+  top: 81px;
+}

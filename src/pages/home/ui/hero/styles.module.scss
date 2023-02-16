@@ -1,0 +1,40 @@
+.wrapper {
+  max-width: 562px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 84px;
+  letter-spacing: 4px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.descr {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37px;
+  margin-top: 64px;
+}
+
+.btn {
+  width: 250px;
+  height: 65px;
+  padding: 15px;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  background-color: #FFC107;
+  border-radius: 11px;
+  border-width: 0px;
+  transition: box-shadow .5s;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 27px;
+  margin-top: 101px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: inset 0px -5px 0px rgba(0, 0, 0, 0.18);
+  }
+}
