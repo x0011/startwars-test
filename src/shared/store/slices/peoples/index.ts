@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GenderColorsEnum } from '../../../../components/tag/GenderTag';
 import { getAllPeoples } from '../../../api';
 
@@ -35,13 +35,18 @@ export interface IPerson {
   mass: string,
 }
 
+export type FilterPeopleType = keyof typeof GenderColorsEnum | undefined;
+
 interface IInitialState {
   isLoading: boolean,
   isSuccess: boolean,
   isLoaded: boolean,
   isError: boolean,
   data: IPerson[],
-  nextPage: number
+  filteredData: IPerson[],
+  nextPage: number,
+  filter: FilterPeopleType,
+  amount: number,
 }
 
 const initialState: IInitialState = {
@@ -51,25 +56,33 @@ const initialState: IInitialState = {
   isError: false,
   nextPage: 2,
   data: [],
+  filteredData: [],
+  filter: undefined,
+  amount: 0,
 };
 
 export const PeoplesSlice = createSlice({
   name: 'People',
   initialState,
-  reducers: {},
+  reducers: {
+    setFilter: (state, action: PayloadAction<FilterPeopleType>) => {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchAllPeoples.fulfilled, (state, action) => {
       state.data = [...action.payload.results];
       state.isSuccess = true;
       state.isLoaded = true;
       state.isLoading = false;
+      state.amount = action.payload.count;
     });
-    builder.addCase(fetchAllPeoples.rejected, (state, action) => {
+    builder.addCase(fetchAllPeoples.rejected, (state) => {
       state.isLoading = false;
       state.isLoaded = true;
       state.isError = true;
     });
-    builder.addCase(fetchAllPeoples.pending, (state, action) => {
+    builder.addCase(fetchAllPeoples.pending, (state) => {
       state.isLoading = true;
     });
     builder.addCase(fetchNextPage.fulfilled, (state, action) => {
@@ -78,3 +91,5 @@ export const PeoplesSlice = createSlice({
     });
   },
 });
+
+export const { setFilter } = PeoplesSlice.actions;

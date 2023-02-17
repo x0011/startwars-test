@@ -33,6 +33,7 @@
         "react/require-default-props": "off",
         "arrow-body-style": "warn",
         "react/self-closing-comp": "warn",
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }

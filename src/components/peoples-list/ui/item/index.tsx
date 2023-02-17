@@ -16,14 +16,18 @@ export const PeoplesListItem: React.FC<IPeopleListItem> = ({ data }) => {
     <div className={styles.wrapper}>
       <h3 className={styles.title}>{name}</h3>
       <div className={styles.characteristic}>
-        <div className={styles.characteristicItem}>
-          <div className={styles.characteristicValue}>{height}</div>
-          height
-        </div>
-        <div className={styles.characteristicItem}>
-          <div className={styles.characteristicValue}>{mass}</div>
-          mass
-        </div>
+        {(height && height !== 'unknown') && (
+          <div className={styles.characteristicItem}>
+            <div className={styles.characteristicValue}>{height}</div>
+            height
+          </div>
+        )}
+        {(mass && mass !== 'unknown') && (
+          <div className={styles.characteristicItem}>
+            <div className={styles.characteristicValue}>{mass}</div>
+            mass
+          </div>
+        )}
       </div>
       <div className={styles.tags}>
         { (gender !== 'n/a') && <GenderTag gender={gender} /> }
