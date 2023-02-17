@@ -3,6 +3,7 @@ import { useTypedDispatch, useTypedSelector } from '../../shared/store';
 import { fetchAllPeoples, IPerson } from '../../shared/store/slices/peoples';
 import { PeopleFilter } from '../peoples-filter';
 import { PeoplesList } from '../peoples-list';
+import { Preloader } from '../preloader';
 import { Title } from '../title';
 import styles from './app.module.scss';
 
@@ -19,7 +20,7 @@ const App = () => {
   }, [data]);
 
   if (isError) return <h1>Error</h1>;
-  if (isLoading) return <h1>Loading...</h1>;
+  if (isLoading) return <Preloader />;
   if (isSuccess) {
     // console.log(data);
   }

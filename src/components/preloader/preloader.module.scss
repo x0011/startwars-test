@@ -1,0 +1,22 @@
+@keyframes imgRotate {
+  from {
+    transform: rotate(0deg) translate(-50%, -50%);
+    // transform-origin: center;
+  }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%);
+    // transform-origin: center;
+  }
+}
+
+.logo {
+  .img {
+    transform-origin: 0px 0px;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    animation-name: imgRotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+}

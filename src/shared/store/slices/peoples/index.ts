@@ -87,7 +87,18 @@ export const PeoplesSlice = createSlice({
     });
     builder.addCase(fetchNextPage.fulfilled, (state, action) => {
       state.data = [...state.data, ...action.payload.results];
+      state.isLoading = false;
       state.nextPage += 1;
+    });
+    builder.addCase(fetchNextPage.rejected, (state, action) => {
+      state.isLoading = false;
+      state.isLoaded = true;
+      state.isError = true;
+    });
+    builder.addCase(fetchNextPage.pending, (state, action) => {
+      state.isLoading = true;
+      state.isLoaded = false;
+      state.isError = false;
     });
   },
 });
