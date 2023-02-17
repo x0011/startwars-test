@@ -9,6 +9,7 @@ import styles from './app.module.scss';
 
 const App = () => {
   const dispatch = useTypedDispatch();
+  // useToBottomPage();
   const {
     isLoading, isError, isSuccess, data, filter, amount,
   } = useTypedSelector((state) => state.peoples);
@@ -17,14 +18,15 @@ const App = () => {
     if (!data.length) {
       dispatch(fetchAllPeoples());
     }
+    window.scrollTo(0, document.body.scrollHeight);
   }, [data]);
 
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <Preloader />;
-  if (isSuccess) {
-    // console.log(data);
-  }
 
+  const btnHandler = () => {
+    window.scrollTo(0, document.body.scrollHeight);
+  };
   return (
     isSuccess
       ? (

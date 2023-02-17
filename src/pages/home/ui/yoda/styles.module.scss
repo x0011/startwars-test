@@ -1,3 +1,39 @@
+@keyframes cloud {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes cloud1 {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes yoda {
+  from {
+    transform: translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50px) rotate(20deg);
+  }
+}
+
+@keyframes shadow {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100px);
+  }
+}
+
 .wrapper {
   position: relative;
   width: 550px;
@@ -10,17 +46,37 @@
 }
 .firstCloud {
   right: -85px;
+  animation-name: cloud;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier();
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 .secondCloud {
   width: 220px;
   bottom: 79px;
+  animation-name: cloud1;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier();
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 .shadow {
   bottom: 0;
   right: 100px;
+  animation-name: shadow;
+  animation-duration: 6s;
+  animation-timing-function: cubic-bezier();
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 .yoda {
   transform: rotate(-17deg);
   left: -24px;
   top: 81px;
+  animation-name: yoda;
+  animation-duration: 6s;
+  animation-timing-function: cubic-bezier();
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
