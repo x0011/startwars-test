@@ -1,9 +1,12 @@
 @keyframes cloud {
   from {
-    transform: translateY(0px);
-  }
-  to {
     transform: translateY(-30px);
+  }
+  // 50% {
+  //   transform: translateY(0px);
+  // }
+  100% {
+    transform: translateY(30px);
   }
 }
 
@@ -47,8 +50,8 @@
 .firstCloud {
   right: -85px;
   animation-name: cloud;
-  animation-duration: 2s;
-  animation-timing-function: cubic-bezier();
+  animation-duration: 3s;
+  // animation-timing-function: cubic-bezier();
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
