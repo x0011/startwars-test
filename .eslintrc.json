@@ -34,6 +34,8 @@
         "arrow-body-style": "warn",
         "react/self-closing-comp": "warn",
         "react/prop-types": "off",
-        "jsx-a11y/label-has-associated-control": "off"
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/no-static-element-interactions": "off",
+        "jsx-a11y/click-events-have-key-events": "off"
     }
 }

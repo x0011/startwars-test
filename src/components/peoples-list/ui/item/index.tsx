@@ -1,37 +1,30 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from 'react';
 import { IPerson } from '../../../../shared/store/slices/peoples';
+import { PersonValueRound } from '../../../person-value-round';
 import { Tag } from '../../../tag';
 import { GenderTag } from '../../../tag/GenderTag';
 import styles from './PeoplesListItem.module.scss';
 
 interface IPeopleListItem {
   data: IPerson,
+  onClick?: React.MouseEventHandler<HTMLDivElement>,
 }
 
-export const PeoplesListItem: React.FC<IPeopleListItem> = ({ data }) => {
+export const PeoplesListItem: React.FC<IPeopleListItem> = ({ data, onClick }) => {
   const {
     height, mass, gender, name, birth_year: birthday,
   } = data;
   return (
-    <div className={styles.wrapper}>
+    <div onClick={onClick} className={styles.wrapper}>
       <h3 className={styles.title}>{name}</h3>
       <div className={styles.characteristic}>
-        {(height && height !== 'unknown') && (
-          <div className={styles.characteristicItem}>
-            <div className={styles.characteristicValue}>{height}</div>
-            height
-          </div>
-        )}
-        {(mass && mass !== 'unknown') && (
-          <div className={styles.characteristicItem}>
-            <div className={styles.characteristicValue}>{mass}</div>
-            mass
-          </div>
-        )}
+        <PersonValueRound injectStyles={styles.characteristicItem} name="height" value={height} />
+        <PersonValueRound name="mass" value={mass} />
       </div>
       <div className={styles.tags}>
         { (gender !== 'n/a') && <GenderTag gender={gender} /> }
-        { (birthday && birthday !== 'unknown') && <Tag text={birthday} /> }
+        <Tag text={birthday} />
       </div>
     </div>
   );

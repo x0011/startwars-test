@@ -1,0 +1,15 @@
+
+.characteristics {
+  &Item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    background: #FFF;
+    margin-right: 23px;
+    border-radius: 8px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}

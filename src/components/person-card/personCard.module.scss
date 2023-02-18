@@ -1,0 +1,84 @@
+.card {
+  display: flex;
+  max-width: 796px;
+  background: white;
+  // border-radius: 8px 16px 16px 8px;
+  // overflow: hidden;
+  position: relative;
+}
+
+.genderIcon {
+  width: 50%;
+  align-self: center;
+  justify-self: center;
+}
+
+.gender {
+  background-color: #1F2A63;
+  max-width: 364px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+
+  .tags {
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+.description {
+  background: linear-gradient(180deg, #17002F 42.19%, #1F2A63 100%);
+  padding: 30px 12px;
+}
+
+.name {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #FDFDFD;
+}
+
+.descrCard {
+  max-width: 264px;
+  padding: 25px;
+  background-color: #FFF;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 27px;
+}
+
+.characteristics {
+  display: flex;
+  margin-top: 76px;
+
+}
+
+.closeBtn {
+  position: absolute;
+  right: 0;
+  right: 26px;
+  top: -34px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  &::before {
+    content: '';
+    width: 35px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #212121;
+    position: absolute;
+    transform: rotate(45deg);
+  }
+  &::after {
+    content: '';
+    width: 35px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #212121;
+    position: absolute;
+    transform: rotate(-45deg);
+  }
+}

@@ -7,5 +7,7 @@ interface ITag {
 }
 
 export const Tag: React.FC<ITag> = ({ text, injectStyles }) => (
-  <span className={[styles.tag, injectStyles].join(' ')}>{text}</span>
+  text !== 'unknown'
+    ? <span className={[styles.tag, injectStyles].join(' ')}>{text}</span>
+    : null
 );

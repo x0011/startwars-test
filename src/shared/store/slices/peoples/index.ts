@@ -28,9 +28,9 @@ export interface IPerson {
   name: string,
   gender: keyof typeof GenderColorsEnum,
   birth_year: string
-  hairColor: string,
-  skinColor: string,
-  eyeColor: string,
+  hair_color: string,
+  skin_color: string,
+  eye_color: string,
   height: string,
   mass: string,
 }
@@ -43,7 +43,8 @@ interface IInitialState {
   isLoaded: boolean,
   isError: boolean,
   data: IPerson[],
-  filteredData: IPerson[],
+  // filteredData: IPerson[],
+  currentPerson: IPerson | undefined,
   nextPage: number,
   filter: FilterPeopleType,
   amount: number,
@@ -56,7 +57,8 @@ const initialState: IInitialState = {
   isError: false,
   nextPage: 2,
   data: [],
-  filteredData: [],
+  // filteredData: [],
+  currentPerson: undefined,
   filter: undefined,
   amount: 0,
 };
@@ -67,6 +69,12 @@ export const PeoplesSlice = createSlice({
   reducers: {
     setFilter: (state, action: PayloadAction<FilterPeopleType>) => {
       state.filter = action.payload;
+    },
+    setCurrentPerson(state, action: PayloadAction<IPerson>) {
+      state.currentPerson = action.payload;
+    },
+    removeCurrentPerson(state) {
+      state.currentPerson = undefined;
     },
   },
   extraReducers: (builder) => {
@@ -103,4 +111,8 @@ export const PeoplesSlice = createSlice({
   },
 });
 
-export const { setFilter } = PeoplesSlice.actions;
+export const {
+  setFilter,
+  setCurrentPerson,
+  removeCurrentPerson,
+} = PeoplesSlice.actions;
