@@ -3,3 +3,16 @@
   justify-content: space-between;
   margin-top: 128px;
 }
+
+@media (max-width: 1200px) {
+  .homeWrapper {
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .homeWrapper {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+}

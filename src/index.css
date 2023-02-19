@@ -7,8 +7,8 @@
 
 html[data-bg] {
   background: linear-gradient(180deg, #1F2A63 0%, #17002F 100%);
-  height: 100%;
   color: #FFFF;
+  min-height: 100%;
 }
 
 body {

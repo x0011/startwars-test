@@ -20,3 +20,11 @@
     animation-iteration-count: infinite;
   }
 }
+
+@media (max-width: 576px) {
+  .logo {
+    .img {
+      width: 64px;
+    }
+  }
+}
