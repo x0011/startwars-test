@@ -7,6 +7,7 @@ import { Modal } from '../modal';
 import { PersonValueRound } from '../person-value-round';
 import { Tag } from '../tag';
 import { GenderTag } from '../tag/GenderTag';
+import { Translator } from '../translator';
 import styles from './personCard.module.scss';
 import { CharacteristicsItem } from './ui/characteristicsItem';
 
@@ -32,24 +33,26 @@ export const PersonCard: React.FC = () => {
           <GenderIcon injectStyles={styles.genderIcon} gender={currentPerson.gender} />
           <div className={styles.tags}>
             <GenderTag gender={currentPerson.gender} />
-            <Tag text={currentPerson.birth_year} />
+            <Tag text={currentPerson.birth_year} translate={false} />
           </div>
         </div>
         <div className={styles.description}>
-          <h3 className={styles.name}>{currentPerson.name}</h3>
+          <h3 className={styles.name}>
+            <Translator text={currentPerson.name} />
+          </h3>
           <div className={styles.descrCard}>
             <p>
-              Hair color:
+              <Translator text="Hair color:" />
               {' '}
               {currentPerson.hair_color}
             </p>
             <p>
-              Skin color:
+              <Translator text="Skin color:" />
               {' '}
               {currentPerson.skin_color}
             </p>
             <p>
-              Eye color:
+              <Translator text="Eye color:" />
               {' '}
               {currentPerson.eye_color}
             </p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { Translator } from '../../../../components/translator';
 import styles from './styles.module.scss';
 
 export const Hero = () => {
@@ -7,17 +8,21 @@ export const Hero = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>
-        <span className={styles.bold}>Find</span>
+        <span className={styles.bold}><Translator text="Find" /></span>
         {' '}
-        all your
-        favorite
+        <Translator text="all your" />
+        <Translator text="favorite" />
         {' '}
-        <span className={styles.bold}>character</span>
+        <span className={styles.bold}>
+          <Translator text="character" />
+        </span>
       </h1>
       <p className={styles.descr}>
-        You can find out all the information about your favorite characters
+        <Translator text="You can find out all the information about your favorite characters" />
       </p>
-      <button type="button" onClick={() => nav('/characters')} className={styles.btn}>See more...</button>
+      <button type="button" onClick={() => nav('/characters')} className={styles.btn}>
+        <Translator text="See more..." />
+      </button>
     </div>
   );
 };

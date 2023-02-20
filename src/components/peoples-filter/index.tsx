@@ -3,15 +3,16 @@ import React from 'react';
 import { useTypedDispatch, useTypedSelector } from '../../shared/store';
 import { FilterPeopleType, setFilter } from '../../shared/store/slices/peoples';
 import { GenderColorsEnum } from '../tag/GenderTag';
-import styles from './peoplesFilter.module.scss';
+import { toWookie, Translator } from '../translator';
 
 interface IPeopleFilter {
   injectStyles?: string
 }
 
+// Перевод в списке сделан через тернарник только здесь.
 export const PeopleFilter: React.FC<IPeopleFilter> = ({ injectStyles }) => {
   const dispatch = useTypedDispatch();
-  const { filter } = useTypedSelector((state) => state.peoples);
+  const { filter, wookie } = useTypedSelector((state) => state.peoples);
   const genders = (Object.keys(GenderColorsEnum) as (keyof typeof GenderColorsEnum)[]);
 
   const selectHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,14 +26,25 @@ export const PeopleFilter: React.FC<IPeopleFilter> = ({ injectStyles }) => {
 
   return (
     <label>
-      Filter results by gender:
+      <Translator text="Select person:" />
       <select
         value={filter}
         onChange={(e) => selectHandler(e)}
         className={injectStyles}
       >
-        <option value="">Показать все</option>
-        {genders.map((gender, count) => <option key={count} value={gender}>{gender}</option>)}
+        <option value="">
+          {wookie ? toWookie('Show all') : 'Show all'}
+        </option>
+        {
+          genders.map((gender, count) => (
+            <option
+              key={count}
+              value={gender}
+            >
+              {wookie ? toWookie(gender) : gender}
+            </option>
+          ))
+        }
       </select>
     </label>
   );

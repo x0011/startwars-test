@@ -5,6 +5,7 @@ import { PeopleFilter } from '../peoples-filter';
 import { PeoplesList } from '../peoples-list';
 import { Preloader } from '../preloader';
 import { Title } from '../title';
+import { toWookie, Translator } from '../translator';
 import styles from './app.module.scss';
 
 const App = () => {
@@ -24,9 +25,6 @@ const App = () => {
   if (isError) return <h1>Error</h1>;
   if (isLoading) return <Preloader />;
 
-  const btnHandler = () => {
-    window.scrollTo(0, document.body.scrollHeight);
-  };
   return (
     isSuccess
       ? (
@@ -35,9 +33,9 @@ const App = () => {
             {' '}
             {amount}
             {' '}
-            <span className={styles.titleBold}>Peoples</span>
+            <span className={styles.titleBold}><Translator text="People" /></span>
             {' '}
-            for you to choose your favorite
+            <Translator text="for you to choose your favorite" />
           </Title>
           <PeopleFilter injectStyles={styles.filter} />
           <PeoplesList data={data} filter={filter} />

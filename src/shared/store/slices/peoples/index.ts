@@ -48,6 +48,7 @@ interface IInitialState {
   nextPage: number,
   filter: FilterPeopleType,
   amount: number,
+  wookie: boolean,
 }
 
 const initialState: IInitialState = {
@@ -56,6 +57,7 @@ const initialState: IInitialState = {
   isLoaded: false,
   isError: false,
   nextPage: 2,
+  wookie: true,
   data: [],
   // filteredData: [],
   currentPerson: undefined,
@@ -72,6 +74,9 @@ export const PeoplesSlice = createSlice({
     },
     setCurrentPerson(state, action: PayloadAction<IPerson>) {
       state.currentPerson = action.payload;
+    },
+    toogleLang(state) {
+      state.wookie = !state.wookie;
     },
     removeCurrentPerson(state) {
       state.currentPerson = undefined;
@@ -115,4 +120,5 @@ export const {
   setFilter,
   setCurrentPerson,
   removeCurrentPerson,
+  toogleLang,
 } = PeoplesSlice.actions;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Translator } from '../translator';
 import styles from './styles.module.scss';
 
 // Ссылки в таком виде, потому что не вижу смысла декомпозировать их на объект так как всего 2 штуки
@@ -11,7 +12,7 @@ export const HeaderNav: React.FC = () => (
         className={({ isActive }) => (isActive ? styles.item_active : undefined)}
         to="/"
       >
-        Home
+        <Translator text="home" />
       </NavLink>
     </li>
     <li className={styles.item}>
@@ -19,7 +20,7 @@ export const HeaderNav: React.FC = () => (
         className={({ isActive }) => (isActive ? styles.item_active : undefined)}
         to="/characters"
       >
-        Characters
+        <Translator text="characters" />
       </NavLink>
     </li>
   </ul>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Translator } from '../translator';
 import styles from './PersonValueRound.module.scss';
 
 interface IPersonalRound {
@@ -11,7 +12,7 @@ export const PersonValueRound: React.FC<IPersonalRound> = ({ value, name, inject
   value !== 'unknown' ? (
     <div className={[styles.characteristicItem, injectStyles].join(' ')}>
       <div className={styles.characteristicValue}>{value}</div>
-      {name}
+      <Translator text={name} />
     </div>
   )
     : null

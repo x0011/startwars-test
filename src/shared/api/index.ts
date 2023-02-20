@@ -7,6 +7,7 @@ export const getAllPeoples = async (args?: string) => {
   try {
     const query = args ? baseApi + endpoint + args : baseApi + endpoint;
     const result = await axios.get(query);
+    // console.log(result);
     return result.data;
   } catch (err) {
     const error = err as AxiosError;

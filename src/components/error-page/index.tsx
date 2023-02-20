@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import styles from './errorPage.module.scss';
 import DeathStarImage from './assets/img/death-star.png';
+import { Translator } from '../translator';
 
 export const ErrorPage = () => {
   const nav = useNavigate();
@@ -14,7 +15,9 @@ export const ErrorPage = () => {
         {' '}
         4
       </div>
-      <button type="button" onClick={() => nav('/')} className={styles.returnBtn}>Return</button>
+      <button type="button" onClick={() => nav('/')} className={styles.returnBtn}>
+        <Translator text="return" />
+      </button>
     </div>
   );
 };
